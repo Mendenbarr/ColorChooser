@@ -23,9 +23,9 @@ public class JColorChooser extends javax.swing.JFrame {
         chooser.addColorListener(colorTextFieldRed);
         chooser.addColorListener(colorTextFieldGreen);
         chooser.addColorListener(colorTextFieldBlue);
-        colorTextFieldRed.color = "red";
-        colorTextFieldGreen.color = "green";
-        colorTextFieldBlue.color = "blue";
+        colorTextFieldRed.setColor("red");
+        colorTextFieldGreen.setColor("green");
+        colorTextFieldBlue.setColor("blue");
     }
 
     /**

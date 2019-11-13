@@ -12,7 +12,15 @@ import javax.swing.JTextField;
  * @author 01048750
  */
 public class ColorTextField extends JTextField implements ColorListener{
-    public String color;
+    private String color;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public ColorTextField() {
         super();
