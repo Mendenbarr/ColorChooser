@@ -36,6 +36,7 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
         chooser.addColorListener(colorTextFieldRed);
         chooser.addColorListener(colorTextFieldGreen);
         chooser.addColorListener(colorTextFieldBlue);
+        chooser.addColorListener(this);
         colorTextFieldRed.setColor("red");
         colorTextFieldGreen.setColor("green");
         colorTextFieldBlue.setColor("blue");
@@ -209,6 +210,7 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
 
     @Override
     public void changeColor(ColorEvent ce) {
+        System.out.println("Test");
         this.color = ce.getColor();
         }
     
