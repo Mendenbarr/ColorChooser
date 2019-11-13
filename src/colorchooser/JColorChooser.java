@@ -20,6 +20,12 @@ public class JColorChooser extends javax.swing.JFrame {
         initComponents();
         chooser.addColorListener(canvas);
         chooser.addColorListener(label);
+        chooser.addColorListener(colorTextFieldRed);
+        chooser.addColorListener(colorTextFieldGreen);
+        chooser.addColorListener(colorTextFieldBlue);
+        colorTextFieldRed.color = "red";
+        colorTextFieldGreen.color = "green";
+        colorTextFieldBlue.color = "blue";
     }
 
     /**
@@ -36,15 +42,15 @@ public class JColorChooser extends javax.swing.JFrame {
         label = new colorchoosercomponents.ColorLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtRed = new javax.swing.JTextField();
+        colorTextFieldRed = new colorchoosercomponents.ColorTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtGreen = new javax.swing.JTextField();
+        colorTextFieldGreen = new colorchoosercomponents.ColorTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtBlue = new javax.swing.JTextField();
+        colorTextFieldBlue = new colorchoosercomponents.ColorTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -64,27 +70,21 @@ public class JColorChooser extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(6, 2));
 
-        jLabel1.setText("Red");
+        jLabel1.setText("  Red");
         jPanel1.add(jLabel1);
-
-        txtRed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRedActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtRed);
+        jPanel1.add(colorTextFieldRed);
         jPanel1.add(jLabel4);
         jPanel1.add(jLabel5);
 
-        jLabel2.setText("Green");
+        jLabel2.setText("  Green");
         jPanel1.add(jLabel2);
-        jPanel1.add(txtGreen);
+        jPanel1.add(colorTextFieldGreen);
         jPanel1.add(jLabel6);
         jPanel1.add(jLabel7);
 
-        jLabel3.setText("Blue");
+        jLabel3.setText("  Blue");
         jPanel1.add(jLabel3);
-        jPanel1.add(txtBlue);
+        jPanel1.add(colorTextFieldBlue);
         jPanel1.add(jLabel8);
         jPanel1.add(jLabel9);
 
@@ -121,10 +121,6 @@ public class JColorChooser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +160,9 @@ public class JColorChooser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private colorchoosercomponents.ColorCanvas canvas;
     private colorchoosercomponents.ColorChooser chooser;
+    private colorchoosercomponents.ColorTextField colorTextFieldBlue;
+    private colorchoosercomponents.ColorTextField colorTextFieldGreen;
+    private colorchoosercomponents.ColorTextField colorTextFieldRed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -175,8 +174,5 @@ public class JColorChooser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private colorchoosercomponents.ColorLabel label;
-    private javax.swing.JTextField txtBlue;
-    private javax.swing.JTextField txtGreen;
-    private javax.swing.JTextField txtRed;
     // End of variables declaration//GEN-END:variables
 }

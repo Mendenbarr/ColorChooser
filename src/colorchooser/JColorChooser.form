@@ -89,13 +89,10 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Red"/>
+            <Property name="text" type="java.lang.String" value="  Red"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtRed">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRedActionPerformed"/>
-          </Events>
+        <Component class="colorchoosercomponents.ColorTextField" name="colorTextFieldRed">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
         </Component>
@@ -103,10 +100,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Green"/>
+            <Property name="text" type="java.lang.String" value="  Green"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtGreen">
+        <Component class="colorchoosercomponents.ColorTextField" name="colorTextFieldGreen">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
         </Component>
@@ -114,10 +111,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Blue"/>
+            <Property name="text" type="java.lang.String" value="  Blue"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtBlue">
+        <Component class="colorchoosercomponents.ColorTextField" name="colorTextFieldBlue">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
         </Component>

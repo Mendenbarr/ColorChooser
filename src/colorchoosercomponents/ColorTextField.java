@@ -12,15 +12,20 @@ import javax.swing.JTextField;
  * @author 01048750
  */
 public class ColorTextField extends JTextField implements ColorListener{
+    public String color;
 
     public ColorTextField() {
         super();
+        setText("0");
         
     }
 
     @Override
     public void changeColor(ColorEvent ce) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Test");
+        if (color == "red") setText(Integer.toString(ce.getColor().getRed()));
+        else if (color == "green") setText(Integer.toString(ce.getColor().getGreen()));
+        else if (color == "blue") setText(Integer.toString(ce.getColor().getBlue()));
     }
     
 }
