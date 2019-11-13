@@ -12,7 +12,7 @@ package colorfield;
 public class JColorField extends JRegExpField {
     public JColorField(){
         super();
-        setExp("[0-2]?[0-5]?[0-5]?");
+        setExp("\\b(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5])\\b");
     }
     
     public int getValue() throws NumberFormatException{
