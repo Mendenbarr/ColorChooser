@@ -164,7 +164,7 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
 
     @Override
     public void changeColor(ColorEvent ce) {
-        System.out.println("Test");
+        //System.out.println("Test");
         this.color = ce.getColor();
         panel.setColorTextPanel(color);
         chooser.setColorChooser(color);

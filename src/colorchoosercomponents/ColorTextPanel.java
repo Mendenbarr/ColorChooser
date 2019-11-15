@@ -102,14 +102,13 @@ public class ColorTextPanel extends javax.swing.JPanel implements ActionListener
     
     private void fireColorEvent(ColorEvent ce){
        ArrayList list;
-       //even though Vector is thread-safe, we need to use synchronized to ensure thread-safe anyway.
+       //to ensure thread-safety
        synchronized(this) {
            list = (ArrayList)listeners.clone();
        }
        //gives all the members in the collection
        int size = list.size();
        for(int i=0; i<size; i++) {
-           //elementAt takes the position in the vector (ArrayList).
            ColorListener colorListener = (ColorListener)listeners.get(i);
            colorListener.changeColor(ce);
        }

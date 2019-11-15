@@ -25,9 +25,6 @@
       </Properties>
     </Component>
     <Component class="colorchoosercomponents.ColorTextField" name="cTextFieldRed">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
     </Component>
@@ -39,9 +36,6 @@
       </Properties>
     </Component>
     <Component class="colorchoosercomponents.ColorTextField" name="cTextFieldGreen">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cTextFieldGreenActionPerformed"/>
       </Events>
@@ -56,9 +50,6 @@
       </Properties>
     </Component>
     <Component class="colorchoosercomponents.ColorTextField" name="cTextFieldBlue">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
