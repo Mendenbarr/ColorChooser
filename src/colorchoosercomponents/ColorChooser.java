@@ -103,4 +103,10 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
     public void removeColorListener(ColorListener colorListener){
         listeners.removeElement(colorListener);
     }
+    
+    public void setColorChooser (Color color) {
+        sldRed.setValue(color.getRed());
+        sldGreen.setValue(color.getGreen());
+        sldBlue.setValue(color.getBlue());
+    }
 }

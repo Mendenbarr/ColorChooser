@@ -27,7 +27,6 @@ public class ColorTextPanel extends javax.swing.JPanel implements ActionListener
         cTextFieldRed.addActionListener(this);
         cTextFieldGreen.addActionListener(this);
         cTextFieldBlue.addActionListener(this);
-        //listeners = new Vector();
         listeners = new ArrayList<>();
         
     }
@@ -46,11 +45,11 @@ public class ColorTextPanel extends javax.swing.JPanel implements ActionListener
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        cTextFieldBlue = new colorchoosercomponents.ColorTextField();
+        cTextFieldGreen = new colorchoosercomponents.ColorTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cTextFieldGreen = new colorchoosercomponents.ColorTextField();
+        cTextFieldBlue = new colorchoosercomponents.ColorTextField();
 
         setLayout(new java.awt.GridLayout(6, 2));
 
@@ -65,17 +64,26 @@ public class ColorTextPanel extends javax.swing.JPanel implements ActionListener
         jLabel2.setText("Green");
         add(jLabel2);
 
-        cTextFieldBlue.setText("0");
-        add(cTextFieldBlue);
+        cTextFieldGreen.setText("0");
+        cTextFieldGreen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cTextFieldGreenActionPerformed(evt);
+            }
+        });
+        add(cTextFieldGreen);
         add(jLabel6);
         add(jLabel7);
 
         jLabel3.setText("Blue");
         add(jLabel3);
 
-        cTextFieldGreen.setText("0");
-        add(cTextFieldGreen);
+        cTextFieldBlue.setText("0");
+        add(cTextFieldBlue);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cTextFieldGreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cTextFieldGreenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cTextFieldGreenActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -123,9 +131,15 @@ public class ColorTextPanel extends javax.swing.JPanel implements ActionListener
     public void actionPerformed(ActionEvent e) {
         int r = parseInt(cTextFieldRed.getText());
         int g = parseInt(cTextFieldGreen.getText());
-        int b = parseInt(cTextFieldGreen.getText());
+        int b = parseInt(cTextFieldBlue.getText());
         Color color = new Color(r,g,b);
         ColorEvent colorEvent = new ColorEvent(this,color);
-        fireColorEvent(colorEvent);
+        fireColorEvent(colorEvent);       
+    }
+    
+    public void setColorTextPanel(Color color) {
+        cTextFieldRed.setText(String.valueOf(color.getRed()));
+        cTextFieldGreen.setText(String.valueOf(color.getGreen()));
+        cTextFieldBlue.setText(String.valueOf(color.getBlue()));      
     }
 }

@@ -5,13 +5,13 @@
  */
 package colorchoosercomponents;
 
-import colorfield.JRegExpField;
+import colorfield.JColorField;
 
 /**
  *
  * @author 01048750
  */
-public class ColorTextField extends JRegExpField implements ColorListener{
+public class ColorTextField extends JColorField implements ColorListener{
     private String color;
 
     public String getColor() {
@@ -24,9 +24,7 @@ public class ColorTextField extends JRegExpField implements ColorListener{
 
     public ColorTextField() {
         super();
-        setText("0");
-        setExp("\\b(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5])\\b");
-        
+        this.setText("0");
     }
 
     @Override

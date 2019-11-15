@@ -38,10 +38,13 @@
         <Property name="text" type="java.lang.String" value="Green"/>
       </Properties>
     </Component>
-    <Component class="colorchoosercomponents.ColorTextField" name="cTextFieldBlue">
+    <Component class="colorchoosercomponents.ColorTextField" name="cTextFieldGreen">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cTextFieldGreenActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
     </Component>
@@ -52,7 +55,7 @@
         <Property name="text" type="java.lang.String" value="Blue"/>
       </Properties>
     </Component>
-    <Component class="colorchoosercomponents.ColorTextField" name="cTextFieldGreen">
+    <Component class="colorchoosercomponents.ColorTextField" name="cTextFieldBlue">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
