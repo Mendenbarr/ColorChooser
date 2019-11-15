@@ -3,6 +3,7 @@ package testjcolorchooser;
 import colorchooser.*;
 import colorchoosercomponents.ColorEvent;
 import colorchoosercomponents.ColorListener;
+import colorchoosercomponents.ColorTextPanel;
 import java.awt.Color;
 
 /*
@@ -40,7 +41,7 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
         //chooser.addColorListener((ColorListener)panel);
         chooser.addColorListener(this);
         
-        //testPanel
+        //panel listeners
         panel.addColorListener(this);
         panel.addColorListener(canvas);
         panel.addColorListener(label);
@@ -242,6 +243,8 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
     public void changeColor(ColorEvent ce) {
         System.out.println("Test");
         this.color = ce.getColor();
+        panel.setColorTextPanel(color);
+        chooser.setColorChooser(color);
         }
     
     public Color close(){
