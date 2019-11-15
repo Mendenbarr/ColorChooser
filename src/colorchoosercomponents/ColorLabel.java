@@ -15,7 +15,7 @@ public class ColorLabel extends JLabel implements ColorListener {
 
     public ColorLabel() {
         super();
-        //setText("R: 0 G: 0 B: 0");
+        //setText("R: 0 G: 0 B: 0");  
         setText("Hex:  #000000");
     }
 
