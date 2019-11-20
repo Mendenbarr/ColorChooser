@@ -1,17 +1,14 @@
 package texttest;
 
-import colorchoosercomponents.ColorEvent;
 import colorchooser.JColorChooser;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import java.io.*;
 
 public class TextTest extends javax.swing.JFrame implements ActionListener {
 
     JColorChooser chooser;
+
     public TextTest() {
         initComponents();
         chooser = new JColorChooser();
@@ -122,15 +119,15 @@ public class TextTest extends javax.swing.JFrame implements ActionListener {
 
         Object source = ae.getSource();
         if (source == getColor) {
-           chooser.setVisible(true);
+            chooser.setVisible(true);
         } else if (source == color) {
             color();
         }
     }
 
     public void color() {
-        Color color = chooser.getColor();
+        Color newColor = chooser.getColor();
         coloredText.setText(sampleText.getText());
-        coloredText.setForeground(color);
+        coloredText.setForeground(newColor);
     }
 }

@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package colorfield;
+
 import javax.swing.*;
 import javax.swing.text.*;
+
 /**
  *
  * @author 00220682
  */
 public class JRegExpField extends JTextField {
+
     private String exp;
 
     public String getExp() {
@@ -21,20 +24,20 @@ public class JRegExpField extends JTextField {
         this.exp = exp;
         setDocument(new RegExpDocument(exp));
     }
-    
-    public JRegExpField(){
+
+    public JRegExpField() {
         super();
     }
-    
-    public JRegExpField(String exp){
+
+    public JRegExpField(String exp) {
         super();
         this.exp = exp;
-        
+
     }
-    
+
     @Override
-    protected Document createDefaultModel(){
+    protected Document createDefaultModel() {
         return new RegExpDocument(exp);
     }
-    
+
 }

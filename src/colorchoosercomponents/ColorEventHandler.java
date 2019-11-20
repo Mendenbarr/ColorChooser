@@ -7,9 +7,8 @@ package colorchoosercomponents;
 
 /**
  *
- * @author 00220682
+ * @author Jake
  */
-public interface ColorListener {
-
-    public void changeColor(ColorEvent ce);
+public class ColorEventHandler {
+    
 }

@@ -28,18 +28,18 @@ public class ColorLabel extends JLabel implements ColorListener {
     public static String toHex(int decimal) {
         int remainder;
         String hex = "";
-        char hexchars[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-        if (decimal == 0){
+        char hexchars[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        if (decimal == 0) {
             hex = "00";
-        } else if (0 < decimal && decimal < 16){
+        } else if (0 < decimal && decimal < 16) {
             remainder = decimal % 16;
             hex = "0" + hexchars[remainder];
-        } else if (decimal >= 16){
-        while (decimal > 0) {
-            remainder = decimal % 16;
-            hex = hexchars[remainder] + hex;
-            decimal = decimal / 16;
-        }
+        } else if (decimal >= 16) {
+            while (decimal > 0) {
+                remainder = decimal % 16;
+                hex = hexchars[remainder] + hex;
+                decimal = decimal / 16;
+            }
         }
         return hex;
     }

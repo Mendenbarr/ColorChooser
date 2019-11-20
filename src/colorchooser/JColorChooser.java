@@ -9,13 +9,12 @@ import java.awt.Color;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author 00220682
  */
-public class JColorChooser extends javax.swing.JFrame implements ColorListener{
+public class JColorChooser extends javax.swing.JFrame implements ColorListener {
+
     private Color color;
 
     public Color getColor() {
@@ -23,7 +22,9 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
     }
 
     public void setColor(Color color) {
+        //Manually sets the color, and fires a new color event to update everything. 
         this.color = color;
+        chooser.fireColorEvent(new ColorEvent(this, color));
     }
 
     /**
@@ -34,11 +35,13 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
         //chooser listeners
         chooser.addColorListener(canvas);
         chooser.addColorListener(label);
+        chooser.addColorListener(chooser);
         chooser.addColorListener(this);
-        
+
         //panel listeners
         panel.addColorListener(canvas);
         panel.addColorListener(label);
+        panel.addColorListener(chooser);
         panel.addColorListener(this);
     }
 
@@ -164,13 +167,12 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
 
     @Override
     public void changeColor(ColorEvent ce) {
-        //System.out.println("Test");
         this.color = ce.getColor();
         panel.setColorTextPanel(color);
         chooser.setColorChooser(color);
-        }
-    
-    public Color close(){
+    }
+
+    public Color close() {
         this.dispose();
         return this.color;
     }

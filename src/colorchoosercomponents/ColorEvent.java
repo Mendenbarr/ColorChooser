@@ -13,14 +13,15 @@ import java.util.EventObject;
  * @author 00220682
  */
 public class ColorEvent extends EventObject {
-    private Color color;
-    
-    public ColorEvent(Object source, Color color){
+
+    private final Color color;
+
+    public ColorEvent(Object source, Color color) {
         super(source);
         this.color = color;
     }
-    
-    public Color getColor(){
+
+    public Color getColor() {
         return color;
     }
 }

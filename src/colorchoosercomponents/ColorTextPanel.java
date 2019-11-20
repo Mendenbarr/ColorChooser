@@ -6,29 +6,29 @@
 package colorchoosercomponents;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
  * @author ilkac
  */
-public class ColorTextPanel extends javax.swing.JPanel implements ActionListener {
+public class ColorTextPanel extends javax.swing.JPanel implements DocumentListener {
 
-    private ArrayList<ColorListener> listeners;
+    private final ArrayList<ColorListener> listeners;
+
     //private Vector listeners;
     /**
      * Creates new form ColorTextPanel
      */
     public ColorTextPanel() {
         initComponents();
-        cTextFieldRed.addActionListener(this);
-        cTextFieldGreen.addActionListener(this);
-        cTextFieldBlue.addActionListener(this);
+        cTextFieldRed.getDocument().addDocumentListener(this);
+        cTextFieldGreen.getDocument().addDocumentListener(this);
+        cTextFieldBlue.getDocument().addDocumentListener(this);
         listeners = new ArrayList<>();
-        
     }
 
     /**
@@ -99,46 +99,62 @@ public class ColorTextPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 
-    
-    private void fireColorEvent(ColorEvent ce){
-       ArrayList list;
-       //to ensure thread-safety
-       synchronized(this) {
-           list = (ArrayList)listeners.clone();
-       }
-       //gives all the members in the collection
-       int size = list.size();
-       for(int i=0; i<size; i++) {
-           ColorListener colorListener = (ColorListener)listeners.get(i);
-           colorListener.changeColor(ce);
-       }
-       
+    private void fireColorEvent(ColorEvent ce) {
+        ArrayList list;
+        //to ensure thread-safety
+        synchronized (this) {
+            list = (ArrayList) listeners.clone();
+        }
+        //gives all the members in the collection
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            ColorListener colorListener = (ColorListener) listeners.get(i);
+            colorListener.changeColor(ce);
+        }
+
     }
-    
+
     public void addColorListener(ColorListener colorListener) {
         //not specifying the order because we don't need to
         listeners.add(colorListener);
     }
-    
+
     public void removeColorListener(ColorListener colorListener) {
         //again not specifying the order cuz we don't need to
         listeners.remove(colorListener);
     }
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        int r = parseInt(cTextFieldRed.getText());
-        int g = parseInt(cTextFieldGreen.getText());
-        int b = parseInt(cTextFieldBlue.getText());
-        Color color = new Color(r,g,b);
-        ColorEvent colorEvent = new ColorEvent(this,color);
-        fireColorEvent(colorEvent);       
-    }
-    
     public void setColorTextPanel(Color color) {
         cTextFieldRed.setText(String.valueOf(color.getRed()));
         cTextFieldGreen.setText(String.valueOf(color.getGreen()));
-        cTextFieldBlue.setText(String.valueOf(color.getBlue()));      
+        cTextFieldBlue.setText(String.valueOf(color.getBlue()));
+    }
+
+    public void colorChanged() {
+        try {
+            int r = parseInt(cTextFieldRed.getText());
+            int g = parseInt(cTextFieldGreen.getText());
+            int b = parseInt(cTextFieldBlue.getText());
+            Color color = new Color(r, g, b);
+            ColorEvent colorEvent = new ColorEvent(this, color);
+            fireColorEvent(colorEvent);
+        } catch (Exception e) {
+
+        }
+    }
+
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+        colorChanged();
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        colorChanged();
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+        colorChanged();
     }
 }

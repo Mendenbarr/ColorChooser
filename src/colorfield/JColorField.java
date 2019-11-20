@@ -10,12 +10,13 @@ package colorfield;
  * @author 00220682
  */
 public class JColorField extends JRegExpField {
-    public JColorField(){
+
+    public JColorField() {
         super();
         setExp("\\b(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5])\\b");
     }
-    
-    public int getValue() throws NumberFormatException{
+
+    public int getValue() throws NumberFormatException {
         return Integer.parseInt(getText());
     }
 }
