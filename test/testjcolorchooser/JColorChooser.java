@@ -33,21 +33,21 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener{
      */
     public JColorChooser() {
         initComponents();
-        chooser.addColorListener(canvas);
-        chooser.addColorListener(label);       
-        chooser.addColorListener(colorTextFieldRed);
-        chooser.addColorListener(colorTextFieldGreen);
-        chooser.addColorListener(colorTextFieldBlue);
-        //chooser.addColorListener((ColorListener)panel);
-        chooser.addColorListener(this);
-        
-        //panel listeners
-        panel.addColorListener(this);
-        panel.addColorListener(canvas);
-        panel.addColorListener(label);
-        panel.addColorListener(colorTextFieldRed);
-        panel.addColorListener(colorTextFieldGreen);
-        panel.addColorListener(colorTextFieldBlue);
+//        chooser.addColorListener(canvas);
+//        chooser.addColorListener(label);       
+//        chooser.addColorListener(colorTextFieldRed);
+//        chooser.addColorListener(colorTextFieldGreen);
+//        chooser.addColorListener(colorTextFieldBlue);
+//        //chooser.addColorListener((ColorListener)panel);
+//        chooser.addColorListener(this);
+//        
+//        //panel listeners
+//        panel.addColorListener(this);
+//        panel.addColorListener(canvas);
+//        panel.addColorListener(label);
+//        panel.addColorListener(colorTextFieldRed);
+//        panel.addColorListener(colorTextFieldGreen);
+//        panel.addColorListener(colorTextFieldBlue);
         
         //panel.position1.setColor("red");
         colorTextFieldRed.setColor("red");

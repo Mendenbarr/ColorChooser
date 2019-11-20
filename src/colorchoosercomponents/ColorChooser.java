@@ -6,7 +6,6 @@
 package colorchoosercomponents;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -16,8 +15,6 @@ import javax.swing.event.ChangeListener;
  */
 public class ColorChooser extends javax.swing.JPanel implements ChangeListener, ColorListener {
 
-    private final ArrayList<ColorListener> listeners;
-
     /**
      * Creates new form ColorChooser
      */
@@ -26,7 +23,6 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         sldRed.addChangeListener(this);
         sldGreen.addChangeListener(this);
         sldBlue.addChangeListener(this);
-        listeners = new ArrayList<>();
     }
 
     /**
@@ -82,28 +78,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
         int g = sldGreen.getValue();
         int b = sldBlue.getValue();
         Color color = new Color(r, g, b);
-        fireColorEvent(new ColorEvent(this, color));
-    }
-
-    //Home of the event fire
-    public void fireColorEvent(ColorEvent ce) {
-        ArrayList list;
-        synchronized (this) {
-            list = (ArrayList) listeners.clone();
-        }
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            ColorListener colorListener = (ColorListener) listeners.get(i);
-            colorListener.changeColor(ce);
-        }
-    }
-
-    public void addColorListener(ColorListener colorListener) {
-        listeners.add(colorListener);
-    }
-
-    public void removeColorListener(ColorListener colorListener) {
-        listeners.remove(colorListener);
+        ColorEventHandler.fireColorEvent(new ColorEvent(this, color));
     }
 
     public void setColorChooser(Color color) {

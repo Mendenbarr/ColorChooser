@@ -1,6 +1,7 @@
 package colorchooser;
 
 import colorchoosercomponents.ColorEvent;
+import colorchoosercomponents.ColorEventHandler;
 import colorchoosercomponents.ColorListener;
 import java.awt.Color;
 
@@ -24,7 +25,7 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener {
     public void setColor(Color color) {
         //Manually sets the color, and fires a new color event to update everything. 
         this.color = color;
-        chooser.fireColorEvent(new ColorEvent(this, color));
+        ColorEventHandler.fireColorEvent(new ColorEvent(this, color));
     }
 
     /**
@@ -32,17 +33,10 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener {
      */
     public JColorChooser() {
         initComponents();
-        //chooser listeners
-        chooser.addColorListener(canvas);
-        chooser.addColorListener(label);
-        chooser.addColorListener(chooser);
-        chooser.addColorListener(this);
-
-        //panel listeners
-        panel.addColorListener(canvas);
-        panel.addColorListener(label);
-        panel.addColorListener(chooser);
-        panel.addColorListener(this);
+        ColorEventHandler.addColorListener(canvas);
+        ColorEventHandler.addColorListener(label);
+        ColorEventHandler.addColorListener(chooser);
+        ColorEventHandler.addColorListener(this);
     }
 
     /**

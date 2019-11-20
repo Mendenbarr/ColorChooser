@@ -7,7 +7,6 @@ package colorchoosercomponents;
 
 import java.awt.Color;
 import static java.lang.Integer.parseInt;
-import java.util.ArrayList;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -16,19 +15,13 @@ import javax.swing.event.DocumentListener;
  * @author ilkac
  */
 public class ColorTextPanel extends javax.swing.JPanel implements DocumentListener {
-
-    private final ArrayList<ColorListener> listeners;
-
-    //private Vector listeners;
-    /**
-     * Creates new form ColorTextPanel
-     */
+    
+    
     public ColorTextPanel() {
         initComponents();
         cTextFieldRed.getDocument().addDocumentListener(this);
         cTextFieldGreen.getDocument().addDocumentListener(this);
         cTextFieldBlue.getDocument().addDocumentListener(this);
-        listeners = new ArrayList<>();
     }
 
     /**
@@ -99,30 +92,6 @@ public class ColorTextPanel extends javax.swing.JPanel implements DocumentListen
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 
-    private void fireColorEvent(ColorEvent ce) {
-        ArrayList list;
-        //to ensure thread-safety
-        synchronized (this) {
-            list = (ArrayList) listeners.clone();
-        }
-        //gives all the members in the collection
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            ColorListener colorListener = (ColorListener) listeners.get(i);
-            colorListener.changeColor(ce);
-        }
-
-    }
-
-    public void addColorListener(ColorListener colorListener) {
-        //not specifying the order because we don't need to
-        listeners.add(colorListener);
-    }
-
-    public void removeColorListener(ColorListener colorListener) {
-        //again not specifying the order cuz we don't need to
-        listeners.remove(colorListener);
-    }
 
     public void setColorTextPanel(Color color) {
         cTextFieldRed.setText(String.valueOf(color.getRed()));
@@ -137,7 +106,7 @@ public class ColorTextPanel extends javax.swing.JPanel implements DocumentListen
             int b = parseInt(cTextFieldBlue.getText());
             Color color = new Color(r, g, b);
             ColorEvent colorEvent = new ColorEvent(this, color);
-            fireColorEvent(colorEvent);
+            ColorEventHandler.fireColorEvent(colorEvent);
         } catch (Exception e) {
 
         }
