@@ -11,7 +11,7 @@ import colorfield.JColorField;
  *
  * @author 01048750
  */
-public class ColorTextField extends JColorField {
+public class ColorTextField extends JColorField implements ColorListener{
 
     private String color;
 
@@ -26,5 +26,12 @@ public class ColorTextField extends JColorField {
     public ColorTextField() {
         super();
         this.setText("0");
+    }
+    
+    @Override
+    public void changeColor(ColorEvent ce) {
+        if (color == "red") setText(Integer.toString(ce.getColor().getRed()));
+        else if (color == "green") setText(Integer.toString(ce.getColor().getGreen()));
+        else if (color == "blue") setText(Integer.toString(ce.getColor().getBlue()));
     }
 }
